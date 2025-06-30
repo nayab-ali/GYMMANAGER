@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <label for="menu-toggle" class="hamburger-label"><i class="fas fa-bars"></i></label>
+    <input type="checkbox" name="" id="menu-toggle">
+    <div class="sidebar">
+        <a href="{{ url_for('member_dashboard') }}" style="margin-top: 20px;"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
+        <a href="{{ url_for('member_bill_notifications') }}"><i class="fa-solid fa-envelope"></i></i>Bill Notifications</a>
+        <a href="{{ url_for('member_view_bill_receipts') }}"><i class="fa-solid fa-file-invoice"></i>View Bill Receipts</a>
+        <a href="{{ url_for('member_view_schedule') }}"><i class="fas fa-bell"></i>Schedule Notifications</a>
+        <a href="{{ url_for('member_change_password') }}"><i class="fa-solid fa-key"></i>Change Password</a>
+        <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </div>
+    <div class="content">
+        <div class="header">
+            {% block heading %}
+            <h2>Hi, {{ current_user.name.capitalize() }}</h2>
+            {% endblock %}
+            <div class="date">Date: {{ current_date }}</div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <p class="alert alert-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+            <div class="cards">
+                <div class="card">
+                    <h3>User Name</h3>
+                    <p>{{ current_user.username }}</p>
+                </div>
+
+                <div class="card">
+                    <h3>Join Date</h3>
+                    <p>{{ current_user.join_date }}</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Fee Package</h3>
+                    <p>{{ current_user.fee_package }}</p>
+                </div>
+
+
+                
+            </div>
+
+        {% endblock %}
+
+    </div>
+</body>
+</html>

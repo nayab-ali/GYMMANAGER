@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <div class="hero-contact">
+            <div class="hero-overlay">
+                <h1>Contact Us</h1>
+            </div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><span>Address:</span> 123 Fitness Lane, Delhi India</p>
+                <p data-label="Phone"><span>Phone:</span> +91-96500XXXXX</p>
+                <p data-label="Email"><span>Email:</span> info@gymmanager.com</p>
+                <p><span>Working Hours:</span> Mon-Fri: 6 AM - 10 PM, Sat-Sun: 8 AM - 8 PM</p>
+            </div>
+            <div class="map"></div>
+        </div>
+    {% endblock %}
+</body>
+</html>

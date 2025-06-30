@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Notifications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'member_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Bill Notifications</h2>
+    {% endblock %}
+
+    {% block content %}
+        <div class="notification-list">
+            {% if notifications %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Message</th>
+                        <th>Sent Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for notification in notifications %}
+                        <tr>
+                            <td>{{ notification.message }}</td>
+                            <td>{{ notification.sent_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% else %}
+                <p>You have no billing notifications at the moment. We'll let you know as soon as a new bill is issued.</p>
+            {% endif %}
+        </div>
+    {% endblock %}
+</body>
+</html>

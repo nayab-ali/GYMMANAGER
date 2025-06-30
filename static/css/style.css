@@ -1,0 +1,326 @@
+/* Hero section with Background Image */
+.hero{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+.hero-content h1{
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.hero-content p{
+    font-size: 2rem;
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+.cta-button{
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4A6CF7;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+.cta-button:hover{
+    background-color: #3B57D1;
+}
+
+
+
+.solutions-section{
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container{
+    margin: 0 auto;
+}
+.container h2{
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+.description{
+    color: #374151;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 60px;
+}
+.solution-cards{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.card{
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: 30px 20px;
+    flex: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    min-width: 150px;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card i {
+    font-size: 2.2rem;
+    color: #4A6CF7;
+    margin-bottom: 15px;
+}
+.card h3 {
+    color: #1a1a1a;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+.card p {
+    color: #4b5563;
+    font-size: 0.95rem;
+}
+
+/* about page */
+.hero-about{
+    width: 100%;
+    height: 91vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(../images/about.png);
+    background-position: center 15%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.about-container{
+    width: 100%;
+    padding: 60px 30px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.hero-overlay-about h1{
+    font-size: 7rem;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+
+/* contact page */
+.hero-contact{
+    width: 100%;
+    height: 91vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(../images/contact.png);
+    background-position: center 1%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero-overlay h1{
+    font-size: 6rem;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.contact-container{
+    width: 100%;
+    padding: 60px 30px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.contact-info{
+    text-align: left;
+    margin-bottom: 40px;
+}
+.contact-info p{
+    padding: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    background-color: #dde1e9;
+    border-radius: 5px;
+    border-left: 4px solid #4A6CF7;
+    transition: transform 0.3s ease;
+}
+.contact-info p:hover{
+    transform: translateX(-5px);
+}
+p[data-label="Phone"]{
+    word-break: break-all;
+}
+p[data-label="Email"]{
+    word-break: break-all;
+}
+
+.contact-info span{
+    font-weight: bold;
+    color: #3B57D1;
+}
+
+
+
+
+
+
+
+/* Media query for mobiles screen */
+@media only screen and (min-width: 200px) and (max-width: 600px){
+    .hero{
+        padding: 15px;
+        height: 90vh;
+    }
+    .hero-content h1{
+        font-size: 2.2rem;
+    }
+    .hero-content p{
+        font-size: 1.2rem;
+    }
+    .cta-button{
+        padding: 12px 20px;
+        font-size: 1rem;
+        margin: 0;
+    }
+    .solutions-section{
+        padding: 40px 15px;
+    }
+    .description{
+        text-align: left;
+    }
+
+    footer{
+        font-size: 0.9rem;
+    }
+
+
+
+    /* about page */
+    .hero-overlay-about{
+        padding: 20px;
+    }
+    .hero-overlay-about h1{
+        font-size: 4.2rem;
+    }
+
+
+    /* contact page */
+    .hero-contact{
+        height: 90vh;
+    }
+    .hero-overlay{
+        padding: 10px;
+    }
+    .hero-overlay h1{
+        font-size: 3.8rem;
+    }
+    .contact-container{
+        padding: 60px 10px;
+    }
+    .contact-info p{
+        font-size: 1.1rem;
+    }
+}
+
+/* adjust contact page for very small mobile screen */
+@media only screen and (min-width: 200px) and (max-width: 350px){
+    .hero-overlay{
+        padding: 5px;
+    }
+    .hero-overlay h1{
+        font-size: 2.35rem;
+    }
+    .hero-overlay-about{
+        padding: 10px;
+    }
+    .hero-overlay-about h1{
+        font-size: 3rem;
+    }
+}
+
+
+/* media query for tablet screen */
+@media only screen and (min-width:601px) and (max-width:1023px) {
+    .hero{
+        padding: 0 15px;
+    }
+    .hero-content h1{
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+    .hero-content p{
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .cta-button{
+        font-size: 1rem;
+    }
+    .roles{
+        padding: 30px;
+    }
+    .roles h2{
+        font-size: 1.8rem;
+    }
+    .role-card{
+        width: 300px;
+    }
+    .role-icon{
+        height: 70px;
+        width: 70px;
+    }
+    .role-icon i{
+        font-size: 2.2rem;
+    }
+    .role-card h3{
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+    .role-card p{
+        font-size: 0.9rem;
+    }
+    .role-options a{
+        font-size: 0.85rem;
+    }
+
+
+
+    /* about page */
+    .hero-overlay-about h1{
+        font-size: 5rem;
+    }
+
+
+    /* contact page */
+    .hero-contact{
+        background-position: center 5%;
+    }
+    .hero-overlay{
+        padding: 15px;
+        
+    }
+    .hero-overlay h1{
+        font-size: 5rem;
+    }
+    .contact-container{
+        padding: 40px 20px;
+    }
+}

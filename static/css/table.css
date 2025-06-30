@@ -1,0 +1,223 @@
+.member-list, .schedule-list, .notification-list, .bill-list{
+    margin-bottom: 20px;
+}
+.member-list table, .schedule-list table, .notification-list table, .bill-list table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.member-list th, .member-list td, .schedule-list th, .schedule-list td, .notification-list th, .notification-list td, .bill-list th, .bill-list td{
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.member-list th, .schedule-list th, .notification-list th, .bill-list th{
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+td[data-label="Email"]{
+    word-break: break-all;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.form-group label{
+    display: block;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+.form-group button{
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.btn-update, .btn-download, .btn-assign{
+    background-color: #E0F0FF;
+    color: #007BFF;
+}
+.btn-update:hover, .btn-download:hover, .btn-assign:hover{
+    background-color: #D0E8FF;
+    color: #0056B3;
+}
+.btn-download, .btn-assign{
+    width: 100%;
+    text-align: center;
+}
+
+.btn-delete{
+    background-color: #FFE5E5;
+    color: #FF4C4C;
+}
+.btn-delete:hover{
+    background-color: #FFD6D6;
+    color: #CC0000;
+}
+
+
+/* download pdf receipt when admin view bills */
+.form-group a{
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 10px 10px;
+    cursor: pointer;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* .btn-assign{
+    margin-top: 0;
+    margin-bottom: 20px;
+} */
+
+.form-group input, .form-group select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* schdule para if there is no schedule */
+.member-list p, .schedule-list p, .notification-list p, .bill-list p{
+    background-color: #f4f6fb; /* soft light blue background */
+    color: #1a1a1a; /* deep text for clarity */
+    padding: 12px 18px;
+    border-left: 4px solid #4A6CF7; /* accent bar in gym's blue */
+    font-size: 1.1rem;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+
+@media only screen and (min-width:200px) and (max-width:600px){
+    table{
+        border: 0;
+    }
+    thead{
+        display: none;
+    }
+    tr{
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .member-list, .schedule-list, .notification-list, .bill-list{
+        width: 100%;
+    }
+    .member-list td, .schedule-list td, .notification-list td, .bill-list td{
+        display: block;
+        text-align: right;
+        padding: 8px;
+        border-bottom: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    .member-list td::before, .schedule-list td::before, .notification-list td::before, .bill-list td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 8px;
+        width: 45%;
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #1a1a1a;
+    }
+    .member-list td.actions-column, .bill-list td.actions-column{
+        display: block;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+    .form-group{
+        width: 100%;
+    }
+    .form-group button{
+        width: 50%;
+    }
+
+    /* assign fee package button */
+    .btn-assign{
+        width: 100% !important;
+    }
+
+    /* username break for mobile screen */
+    td[data-label="username"]{
+        word-break: break-all;
+    }
+}
+
+
+
+@media only screen and (min-width:601px) and (max-width:1023px){
+    table{
+        border: 0;
+    }
+    thead{
+        display: none;
+    }
+    tbody{
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    tr{
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 260px;
+    }
+    .member-list td, .schedule-list td, .notification-list td, .bill-list td{
+        display: block;
+        text-align: right;
+        padding: 8px;
+        border-bottom: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    .member-list td::before, .schedule-list td::before, .notification-list td::before, .bill-list td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 8px;
+        width: 55%;
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #1a1a1a;
+    }
+    .member-list td.actions-column, .bill-list td.actions-column{
+        display: block;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+    .form-group{
+        width: 100%;
+    }
+    .form-group button{
+        width: 50%;
+    }
+
+
+    /* assign fee package button */
+    .btn-assign{
+        width: 100% !important;
+    }
+
+}

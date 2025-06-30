@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <div class="hero-about">
+            <div class="hero-overlay-about">
+                <h1>About Us</h1>
+            </div>
+        </div>
+        <div class="about-container">
+            <div>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id doloremque neque minus deleniti alias porro voluptas ducimus recusandae exercitationem rerum, aliquid odit nobis dignissimos eum velit ratione iusto sit facere?
+                Sint cupiditate quod natus porro molestiae rem sit et? Sint necessitatibus esse nihil cupiditate assumenda culpa qui cumque ea fugiat obcaecati incidunt molestiae, eum minima deserunt veritatis dolorem magni dolores.</p>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

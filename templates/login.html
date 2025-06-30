@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Login{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block header %}
+    {% endblock %}
+
+    {% block content_class %}no-margin{% endblock %}
+    {% block content %}
+        <div class="login-form form-content">
+            <h2>Login</h2>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" name="username" id="username" placeholder="Username or Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+            <p>Don't have an account? <a href="{{ url_for('contact') }}">Contact GYMANAGER</a></p>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+</body>
+</html>

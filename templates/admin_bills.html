@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bills</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>View Bills</h2>
+    {% endblock %}
+
+    {% block content %}
+        <div class="member-list">
+            {% if bills %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Member Name</th>
+                        <th>Amount</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bill in bills %}
+                        <tr>
+                            <td data-label="Bill Id">{{ bill.id }}</td>
+                            <td data-label="Member Name">{{ bill.member.name }}</td>
+                            <td data-label="Amount">{{ bill.amount }}</td>
+                            <td data-label="Issue Date">{{ bill.issue_date }}</td>
+                            <td data-label="Due Date">{{ bill.due_date }}</td>
+                            <td data-label="Status">{{ bill.status }}</td>
+                            <td class="actions-column">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                <a href="{{ url_for('serve_receipt', filename='bill_' + bill.id|string + '_' + bill.member.username + '.pdf') }}" class="btn-download">Download</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>No billing records have been created yet. Once a bill is generated for any member, it will be listed here for your reference.</p>
+            {% endif %}
+        </div>
+    {% endblock %}
+
+</body>
+</html>

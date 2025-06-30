@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gym Management System{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+    {% block header %}
+        <header>
+                <div class="nav-brand">
+                    <a href="{{ url_for('index')}}" class="logo">GYMMANAGER</a>
+                </div>
+                <label for="menu-toggle" class="hamburger-label">☰</label>
+                <input type="checkbox" name="" id="menu-toggle">
+                <div class="nav-bar">
+                    <a href="{{ url_for('index') }}" class="nav-options">Home</a>
+                    <a href="{{ url_for('about') }}" class="nav-options">About</a>
+                    <a href="{{ url_for('contact') }}" class="nav-options">Contact</a>
+                    <a href="{{ url_for('login') }}" class="login">Login</a>
+                </div>
+        </header>
+    {% endblock %}
+
+    {% block flash_messages %}
+        <!-- Flash Messages -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <p class="alert alert-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    {% endblock %}
+
+    <!-- Main content -->
+    <main class="main-content {% block content_class %}{% endblock %}">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+    <!-- Footer -->
+    <footer class="footer">
+        <div>
+            <p>© 2025 Gym Management System. All Right Reserved.</p>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+</html>

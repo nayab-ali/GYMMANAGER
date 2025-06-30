@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Members</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Delete Member</h2>
+    {% endblock %}
+
+    {% block content %}
+        <div class="member-list">
+            {% if members %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Fee Package</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in members %}
+                        <tr>
+                            <td data-label="ID">{{ member.id }}</td>
+                            <td data-label="Name">{{ member.name|title }}</td>
+                            <td data-label="Email">{{ member.email }}</td>
+                            <td data-label="Phone">{{ member.phone }}</td>
+                            <td data-label="Fee Package">{{ member.fee_package }}</td>
+                            <td class="actions-column">
+                                <form action="" method="POST" class="form-group" style="margin-bottom: 0;">
+                                    <input type="hidden" name="member_id" value="{{ member.id }}">
+                                    <button class="btn-update" type="submit" name="action" value="update">Update</button>
+                                    <button type="submit" class="btn-delete" name="action" value="delete" onclick="return confirm('Are you sure to delete this member?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>No member records are currently available for update or deletion. Please add members to begin managing gym registration.</p>
+            {% endif %}
+        </div>
+        
+    {% endblock %}
+</body>
+</html>

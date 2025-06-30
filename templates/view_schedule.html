@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Schedule</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>View Schedule</h2>
+    {% endblock %}
+
+    {% block content %}
+        <div class="schedule-list">
+            {% if schedules %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for schedule in schedules %}
+                        <tr>
+                            <td data-label="Date">{{ schedule.schedule_date }}</td>
+                            <td data-label="Status">{{ schedule.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>No closure notices have been scheduled. The gym is operating as usual.</p>
+            {% endif %}
+        </div>
+    {% endblock %}
+</body>
+</html>

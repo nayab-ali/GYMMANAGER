@@ -1,0 +1,145 @@
+.main-content.no-margin {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.form-content{
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+.form-content h2{
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+/* flash messages */
+.flash-messages{
+    margin: 10px 0;
+    text-align: center;
+}
+.alert{
+    white-space: pre-line;
+}
+.alert-success{
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.alert-danger{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-group{
+    text-align: left;
+    margin-bottom: 15px;
+}
+.form-group label{
+    display: block;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-content input[type="submit"]{
+    background-color: #4A6CF7;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+.form-content input[type="submit"]:hover{
+    background-color: #3B57D1;
+}
+.form-content p{
+    margin-top: 10px;
+}
+.form-content p a{
+    color: #4A6CF7;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* add member button */
+.form-group button{
+    background-color: #4A6CF7;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+.form-group button:hover{
+    background-color: #3B57D1;
+}
+
+/* update member buttons */
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.buttons button, .buttons a{
+    width: 50%;
+}
+.buttons a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    background-color: #7a7c82;
+    padding: 10px;
+    margin-top: 15px;
+    color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+}
+.buttons a:hover{
+    background-color: #5e6065;
+}
+
+/* contact GYM MANAGER */
+.login-form p a{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (min-width:200px) and (max-width:600px){
+    .main-content.no-margin{
+        padding: 15px;
+    }
+    .form-content{
+        max-width: 350px;
+    }
+    .form-content p{
+        font-size: 0.8rem;
+    }
+
+    
+    
+}

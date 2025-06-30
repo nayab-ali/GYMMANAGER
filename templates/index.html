@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYMMANAGER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+    
+    {% block content %}
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Your Digital Gym Billing Solution</h1>
+                <p>Secure Receipts, Timely Notifications, Hassle-Free Management</p>
+                <a href="{{ url_for('login') }}" class="cta-button">Get Started</a>
+            </div>
+        </section>
+        <!-- <hr> -->
+        
+
+        <section class="solutions-section">
+            <div class="container">
+                <h2>Solution</h2>
+                <p class="description">
+                    Bill receipts at many gyms are printed on paper, making it tough for members and trainers to keep them safe, often leading to issues when receipts are misplaced. Gym owners also struggle with manually distributing messages about working and non-working days. At GYMMANAGER, we solve these problems by generating PDF bill receipts at bill creation through our online application, ensuring easy access and streamlined communication.
+                </p>
+                <div class="solution-cards">
+                    <div class="card">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <h3>Digital receipts</h3>
+                        <p>Generate and store payment receipts digitally</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-bell"></i>
+                        <h3>Sending notifications</h3>
+                        <p>Notify members about gym updates automatically</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <h3>Scheduling messages</h3>
+                        <p>Set up and send planned messages to members</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+</body>
+</html>

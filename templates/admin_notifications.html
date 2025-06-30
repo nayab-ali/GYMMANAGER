@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Notifications</h2>
+    {% endblock %}
+
+    {% block content %}
+        <div class="member-list">
+            {% if notifications %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member name</th>
+                        <th>Username</th>
+                        <th>Message</th>
+                        <th>Sent Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for notification in notifications %}
+                        <tr>
+                            <td data-label="Member Name">{{ notification.member.name }}</td>
+                            <td data-label="username">{{ notification.member.username }}</td>
+                            <td data-label="Message">{{ notification.message }}</td>
+                            <td data-label="Send Date">{{ notification.sent_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>Notifications for new bills will apear here.</p>
+            {% endif %}
+        </div>
+    {% endblock %}
+</body>
+</html>

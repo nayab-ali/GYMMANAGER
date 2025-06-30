@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bill Receipts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'member_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Bill Receipts</h2>
+    {% endblock %}
+
+    {% block content %}
+        <div class="bill-list">
+            {% if bills %}
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Amount</th>
+                        <th>Due Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bill in bills %}
+                        {% set receipt = receipts | selectattr('bill_id', 'equalto', bill.id) | first %}
+                        <tr>
+                            <td data-label="Bill ID:">{{ bill.id }}</td>
+                            <td data-label="Amount:">{{ bill.amount }}</td>
+                            <td data-label="Due Date:">{{ bill.due_date }}</td>
+                            <td class="actions-column">
+                                
+                                {% if receipt and receipt.receipt_url %}
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                    <a href="{{ url_for('serve_receipt', filename=receipt.receipt_url) }}" class="btn-download" target="_blank">Download Receipt</a>
+                                    </div>
+                                {% else %}
+                                    <span>No Receipt available</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% else %}
+                <p>No billing receipts found. Once a bill is issued for you account, the receipt will be available here for download or viewing.</p>
+            {% endif %}
+        </div>
+    {% endblock %}
+</body>
+</html>

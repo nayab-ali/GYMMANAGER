@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Package</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Assign Package</h2>
+    {% endblock %}
+
+    {% block content %}
+        
+            <div class="member-list">
+                {% if members %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Member name</th>
+                            <th>Member username</th>
+                            <th>Current Package</th>
+                            <th>New Package</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in members %}
+                            <tr>
+                                <td data-label="Member Name">{{ member.name }}</td>
+                                <td data-label="username">{{ member.username }}</td>
+                                <td data-label="Current Package">{{ member.fee_package or 'None' }}</td>
+                                <form action="{{ url_for('assign_package') }}" method="POST" class="form-group">
+                                <td data-label="New Package">
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <select name="package" id="" required>
+                                            <option value="">Select Package</option>
+                                            <option value="Basic">Basic (500.00)</option>
+                                            <option value="Premium">Premium (1000.00)</option>
+                                            <option value="Pro">Pro (1500.00)</option>
+                                    </div>
+                                    </div>
+                                </td>
+                                <td class="actions-column">
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <input type="hidden" name="member_id" value="{{ member.id }}">
+                                        <button type="submit" class="btn-assign">Assign</button>
+                                    </div>
+                                </td>
+                                </form>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                    <p>No members found in the system. Please add member profiles before assigning fee packages.</p>
+                {% endif %}
+            </div>
+        
+    {% endblock %}
+</body>
+</html>

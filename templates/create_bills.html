@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Bills</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+</head>
+<body>
+
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Create Bill</h2>
+    {% endblock %}
+
+    {% block content %}
+        <form action="" class="dashboard-forms" method="POST">
+            <div class="form-group">
+                <label for="member_id">Select Member</label>
+                <select name="member_id" id="member_id" required>
+                    {% if members %}
+                        {% for member in members %}
+                            {% set bill_type = 'First' if member.status == 'new' else 'Monthly' %}
+                            <option value="{{ member.id }}">{{ member.username }} - {{ member.name|title }} ( {{ bill_type }} )</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="" disabled>No eligible members</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Create Bill</button>
+            </div>
+        </form>
+    {% endblock %}
+</body>
+</html>
