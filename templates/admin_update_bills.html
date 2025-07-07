@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Bill Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    {% extends 'admin_dashboard.html' %}
+
+    {% block heading %}
+        <h2>Update Bill Status</h2>
+    {% endblock %}
+
+    {% block content %}
+
+       <div class="member-list">
+            {% if bills %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bill ID</th>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bill in bills %}
+                            <tr>
+                                <td data-label="Bill Id">{{ bill.id }}</td>
+                                <td data-label="Username">{{ bill.member.username }}</td>
+                                <td data-label="Name">{{ bill.member.name }}</td>
+                                <td data-label="Amount">{{ bill.amount }}</td>
+                                <td data-label="Status">{{ bill.status }}</td>
+                                <td class="actions-column">
+                                    <form action="{{ url_for('admin_update_bill_status', bill_id=bill.id) }}" method="POST" class="form-group" style="margin-bottom: 0;">
+                                        <input type="hidden" name="bill_id" value="{{ bill.id }}">
+                                        <button class="btn-status-paid" type="submit" style="width: 100%;">Mark as Paid</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No bill here.</p>
+            {% endif %}
+       </div>
+    {% endblock %}
+</body>
+</html>

@@ -12,11 +12,12 @@
     <label for="menu-toggle" class="hamburger-label"><i class="fas fa-bars"></i></label>
     <input type="checkbox" name="" id="menu-toggle">
     <div class="sidebar">
-        <a href="{{ url_for('admin_dashboard') }}" style="margin-top: 20px;"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
         <a href="{{ url_for('add_member') }}"><i class="fas fa-user-plus"></i>Add Member</a>
         <a href="{{ url_for('update_delete_members') }}"><i class="fas fa-user-edit"></i>Update/Delete Members</a>
         <a href="{{ url_for('create_bills') }}"><i class="fas fa-file-invoice"></i>Create Bills</a>
         <a href="{{ url_for('admin_bills') }}"><i class="fa-solid fa-file-invoice"></i>View Bills</a>
+        <a href="{{ url_for('admin_update_bills') }}"><i class="fa-solid fa-file-invoice"></i>Update Bill Status</a>
         <a href="{{ url_for('assign_package') }}"><i class="fas fa-money-bill-wave"></i>Assign Fee Package</a>
         <a href="{{ url_for('admin_notifications') }}"><i class="fas fa-bell"></i>Notifications</a>
         <a href="{{ url_for('manage_schedule') }}"><i class="fa-solid fa-calendar-days"></i>Manage Schedule</a>

@@ -552,6 +552,52 @@ def create_bills():
 def serve_receipt(filename):
     return send_from_directory('static/receipts', filename)
 
+@app.route('/admin/update-bills')
+@login_required
+def admin_update_bills():
+    is_admin_result = is_admin()
+    if is_admin_result is not None:
+        return is_admin_result
+    
+    bills = Bill.query.join(Member).order_by(Bill.id.desc()).all()
+    return render_template('admin_update_bills.html', bills=bills, current_date=date.today())
+
+@app.route('/admin/update-bill-status/<int:bill_id>', methods=['GET', 'POST'])
+@login_required
+def admin_update_bill_status(bill_id):
+    is_admin_result = is_admin()
+    if is_admin_result is not None:
+        return is_admin_result
+    
+    bill = Bill.query.get_or_404(bill_id)
+    member = bill.member
+
+    if request.method == 'POST':
+        try:
+            bill.status = 'paid'
+            db.session.flush
+
+            notification = Notification(
+                member_id = member.id,
+                message=f"{member.name}, Your bill (ID: {bill.id}) with amount {bill.amount} has been marked as paid. Thank You!",
+                sent_date = date.today()
+            )
+            db.session.add(notification)
+            db.session.commit()
+
+            app.logger.info(f"member: {member.name}, bill has been updated to paid.")
+            flash(f"Bill marked as paid and notification sent to {member.name}!", 'success')
+            return redirect(url_for('admin_update_bills'))
+        
+        except Exception as e:
+            db.session.rollback()
+            app.logger.warning(f"Error updating bill status or sending notification of {member.username}: {str(e)}")
+            flash('An error occur to update bill status.', 'danger')
+            return redirect(url_for('admin_update_bill_status', bill_id=bill_id))
+        
+    return render_template('admin_update_bills.html', bill=bill)
+
+
 # New route for admin to view bills
 @app.route('/admin/bills')
 @login_required

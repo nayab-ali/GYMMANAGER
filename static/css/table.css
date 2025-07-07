@@ -41,15 +41,15 @@ td[data-label="Email"]{
     font-weight: bold;
     font-size: 1rem;
 }
-.btn-update, .btn-download, .btn-assign{
+.btn-update, .btn-download, .btn-assign, .btn-status-paid{
     background-color: #E0F0FF;
     color: #007BFF;
 }
-.btn-update:hover, .btn-download:hover, .btn-assign:hover{
+.btn-update:hover, .btn-download:hover, .btn-assign:hover, .btn-status-paid:hover{
     background-color: #D0E8FF;
     color: #0056B3;
 }
-.btn-download, .btn-assign{
+.btn-download, .btn-assign, .btn-status-paid{
     width: 100%;
     text-align: center;
 }
